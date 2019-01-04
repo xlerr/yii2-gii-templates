@@ -11,8 +11,6 @@ $urlParams = $generator->generateUrlParams();
 echo "<?php\n";
 ?>
 
-use yii\helpers\Html;
-
 /* @var $this yii\web\View */
 /* @var $model <?= ltrim($generator->modelClass, '\\') ?> */
 
@@ -21,9 +19,11 @@ $this->params['breadcrumbs'][] = ['label' => <?= $generator->generateString(Infl
 $this->params['breadcrumbs'][] = ['label' => $model-><?= $generator->getNameAttribute() ?>, 'url' => ['view', <?= $urlParams ?>]];
 $this->params['breadcrumbs'][] = <?= $generator->generateString('Update') ?>;
 ?>
-<div class="<?= Inflector::camel2id(StringHelper::basename($generator->modelClass)) ?>-update">
 
-    <h1><?= "<?= " ?>Html::encode($this->title) ?></h1>
+<div class="box box-primary">
+    <div class="box-header with-border">
+        <div class="box-title"><?= "<?= " . $generator->generateString('Update') . " ?>" ?></div>
+    </div>
 
     <?= "<?= " ?>$this->render('_form', [
         'model' => $model,

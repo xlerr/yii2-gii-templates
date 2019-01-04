@@ -9,9 +9,6 @@ use yii\helpers\StringHelper;
 echo "<?php\n";
 ?>
 
-use yii\helpers\Html;
-
-
 /* @var $this yii\web\View */
 /* @var $model <?= ltrim($generator->modelClass, '\\') ?> */
 
@@ -19,9 +16,11 @@ $this->title = <?= $generator->generateString('Create ' . Inflector::camel2words
 $this->params['breadcrumbs'][] = ['label' => <?= $generator->generateString(Inflector::pluralize(Inflector::camel2words(StringHelper::basename($generator->modelClass)))) ?>, 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="<?= Inflector::camel2id(StringHelper::basename($generator->modelClass)) ?>-create">
 
-    <h1><?= "<?= " ?>Html::encode($this->title) ?></h1>
+<div class="box box-primary">
+    <div class="box-header with-border">
+        <div class="box-title"><?= "<?= " . $generator->generateString('Create') . " ?>" ?></div>
+    </div>
 
     <?= "<?= " ?>$this->render('_form', [
         'model' => $model,
