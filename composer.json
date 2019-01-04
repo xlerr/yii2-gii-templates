@@ -1,6 +1,7 @@
 {
   "name": "xlerr/yii2-gii-templates",
   "type": "library",
+  "license": "MIT",
   "authors": [
     {
       "name": "xlerr",
