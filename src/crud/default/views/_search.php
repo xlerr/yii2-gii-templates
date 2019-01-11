@@ -17,9 +17,13 @@ use kartik\widgets\ActiveForm;
 /* @var $form kartik\widgets\ActiveForm */
 ?>
 
-<div class="box box-default">
+<div class="box box-default search">
     <div class="box-header with-border">
-        <div class="box-title"><?= "<?= " . $generator->generateString('Search') . " ?>" ?></div>
+        <i class="glyphicon glyphicon-search"></i>
+        <h3 class="box-title">搜索</h3>
+        <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+        </div>
     </div>
 
     <div class="box-body">
