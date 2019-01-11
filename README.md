@@ -9,7 +9,7 @@ $config['modules']['gii'] = [
         'crud' => [
             'class' => 'yii\gii\generators\crud\Generator',
             'templates' => [
-                'myCrud' => '@vendor/xlerr/yii2-gii-templates/src/curd/default',
+                'myCrud' => '@vendor/xlerr/yii2-gii-templates/src/crud/default',
             ]
         ]
     ],
