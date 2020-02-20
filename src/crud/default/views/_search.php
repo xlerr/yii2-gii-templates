@@ -10,17 +10,17 @@ echo "<?php\n";
 ?>
 
 use yii\helpers\Html;
-use kartik\widgets\ActiveForm;
+use yii\web\View;
+use xlerr\common\widgets\ActiveForm;
 
-/* @var $this yii\web\View */
-/* @var $model <?= ltrim($generator->searchModelClass, '\\') ?> */
-/* @var $form kartik\widgets\ActiveForm */
+/* @var $this View */
+/* @var $model \<?= ltrim($generator->searchModelClass, '\\') ?> */
 ?>
 
 <div class="box box-default search">
     <div class="box-header with-border">
         <i class="glyphicon glyphicon-search"></i>
-        <h3 class="box-title">搜索</h3>
+        <h3 class="box-title"><?= $generator->generateString('Search') ?></h3>
         <div class="box-tools pull-right">
             <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
         </div>
@@ -32,9 +32,7 @@ use kartik\widgets\ActiveForm;
             'action' => ['index'],
             'method' => 'get',
             'type'    => ActiveForm::TYPE_INLINE,
-            'options' => [
-                'data-pjax' => 1,
-            ],
+            'waitingPrompt' => ActiveForm::WAITING_PROMPT_SEARCH,
         ]); ?>
 
 <?php
@@ -49,7 +47,7 @@ foreach ($generator->getColumnNames() as $attribute) {
 ?>
         <div class="form-group">
             <?= "<?= " ?>Html::submitButton(<?= $generator->generateString('Search') ?>, ['class' => 'btn btn-primary']) ?>
-            <?= "<?= " ?>Html::resetButton(<?= $generator->generateString('Reset') ?>, ['class' => 'btn btn-default']) ?>
+            <?= "<?= " ?>Html::a(<?= $generator->generateString('Reset') ?>, ['index'], ['class' => 'btn btn-default']) ?>
             <?= "<?= " ?>Html::a(<?= $generator->generateString('Create ' . Inflector::camel2words(StringHelper::basename($generator->modelClass))) ?>, ['create'], ['class' => 'btn btn-success']) ?>
         </div>
 

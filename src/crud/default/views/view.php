@@ -26,7 +26,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= "<?= " ?>Html::a(<?= $generator->generateString('Delete') ?>, ['delete', <?= $urlParams ?>], [
         'class' => 'btn btn-danger',
         'data' => [
-            'confirm' => <?= $generator->generateString('Are you sure you want to delete this item?') ?>,
+            'confirm' => Yii::t('yii', 'Are you sure you want to delete this item?'),
             'method' => 'post',
         ],
     ]) ?>

@@ -16,12 +16,12 @@ if (empty($safeAttributes)) {
 echo "<?php\n";
 ?>
 
+use yii\web\View;
 use yii\helpers\Html;
-use yii\widgets\ActiveForm;
+use xlerr\common\widgets\ActiveForm;
 
-/* @var $this yii\web\View */
-/* @var $model <?= ltrim($generator->modelClass, '\\') ?> */
-/* @var $form yii\widgets\ActiveForm */
+/* @var $this View */
+/* @var $model \<?= ltrim($generator->modelClass, '\\') ?> */
 ?>
 
 <?= "<?php " ?>$form = ActiveForm::begin(); ?>
