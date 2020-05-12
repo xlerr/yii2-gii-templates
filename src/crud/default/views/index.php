@@ -12,12 +12,14 @@ $nameAttribute = $generator->getNameAttribute();
 echo "<?php\n";
 ?>
 
+use yii\web\View;
+use yii\data\ActiveDataProvider;
 use <?= $generator->indexWidgetType === 'grid' ? "xlerr\\common\\widgets\\GridView" : "yii\\widgets\\ListView" ?>;
 <?= $generator->enablePjax ? 'use xlerr\\common\\widgets\\Pjax;' : '' ?>
 
-/* @var $this yii\web\View */
-<?= !empty($generator->searchModelClass) ? "/* @var \$searchModel " . ltrim($generator->searchModelClass, '\\') . " */\n" : '' ?>
-/* @var $dataProvider yii\data\ActiveDataProvider */
+/* @var $this View */
+/* @var $dataProvider ActiveDataProvider */
+<?= !empty($generator->searchModelClass) ? "/* @var \$searchModel \\" . ltrim($generator->searchModelClass, '\\') . " */\n" : '' ?>
 
 $this->title = <?= $generator->generateString(Inflector::pluralize(Inflector::camel2words(StringHelper::basename($generator->modelClass)))) ?>;
 $this->params['breadcrumbs'][] = $this->title;
@@ -26,13 +28,13 @@ $this->params['breadcrumbs'][] = $this->title;
 <?= $generator->enablePjax ? '<?php Pjax::begin(); ?>' : '' ?>
 
 <?php if(!empty($generator->searchModelClass)): ?>
-<?= "<?php " . ($generator->indexWidgetType === 'grid' ? "// " : "") ?>echo $this->render('_search', ['model' => $searchModel]); ?>
+<?= "<?= " ?>$this->render('_search', ['model' => $searchModel]); ?>
 <?php endif; ?>
 
 <?php if ($generator->indexWidgetType === 'grid'): ?>
 <?= "<?= " ?>GridView::widget([
     'dataProvider' => $dataProvider,
-    <?= !empty($generator->searchModelClass) ? "'filterModel' => \$searchModel,\n    'columns' => [\n" : "'columns' => [\n"; ?>
+    <?= !empty($generator->searchModelClass) ? "// 'filterModel' => \$searchModel,\n    'columns' => [\n" : "'columns' => [\n"; ?>
         ['class' => 'yii\grid\ActionColumn'],
 
 <?php

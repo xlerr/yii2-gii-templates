@@ -20,7 +20,7 @@ use xlerr\common\widgets\ActiveForm;
 <div class="box box-default search">
     <div class="box-header with-border">
         <i class="glyphicon glyphicon-search"></i>
-        <h3 class="box-title"><?= $generator->generateString('Search') ?></h3>
+        <h3 class="box-title"><?= "<?= " . $generator->generateString('Search') . " ?>" ?></h3>
         <div class="box-tools pull-right">
             <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
         </div>
